@@ -25,7 +25,7 @@ do_help () {
     exit 1
 }
 
-while [ -z "$DONE" -a ! -z "$1" ]; do
+while [ -z "$DONE" ] && ! [ -z "$1" ]; do
     case "$1" in
         -b|--base)
             shift;
@@ -60,7 +60,7 @@ while [ -z "$DONE" -a ! -z "$1" ]; do
     esac
 done
 
-if [ "$CMD" = "cat" -a -t 0 ]; then
+if [ "$CMD" = "cat" ] && [ -t 0 ]; then
     do_help
 fi
 
