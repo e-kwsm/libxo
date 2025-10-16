@@ -43,7 +43,7 @@ libs=false
 
 while test $# -gt 0; do
     case "$1" in
-    -*=*) optarg=`echo "$1" | sed 's/[-_a-zA-Z0-9]*=//'` ;;
+    -*=*) optarg=$(echo "$1" | sed 's/[-_a-zA-Z0-9]*=//') ;;
     *) optarg= ;;
     esac
 
@@ -95,7 +95,7 @@ while test $# -gt 0; do
 
 
     --libs)
-        if [ "`uname`" = "Linux" ]
+        if [ "$(uname)" = "Linux" ]
 	then
 	    if [ "@XO_LIBDIR@" = "-L/usr/lib" -o "@XO_LIBDIR@" = "-L/usr/lib64" ]
 	    then

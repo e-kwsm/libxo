@@ -73,7 +73,7 @@ do_run_tests () {
     cp /dev/null $FILES
 
     for test in ${TESTS}; do
-	base=`basename $test .test`
+	base=$(basename $test .test)
 
         for fmt in ${TEST_FORMATS:-T}; do
   	    for input in `echo ${SRCDIR}/${base}*.in`; do
