@@ -80,7 +80,7 @@ do_run_tests () {
 		if [ -f $input ]; then
 		    name=$(basename $input .in)
 		    ds=1
-		    grep '^#run' $input | while read comment data ; do
+		    grep '^#run' $input | while read -r comment data ; do
 			run_tests
 			ds=$(expr $ds + 1)
 		    done
@@ -116,7 +116,7 @@ do_accept () {
 		if [ -f $input ]; then
 		    name=$(basename $input .in)
 		    ds=1
-		    grep '^#run' $input | while read comment data ; do
+		    grep '^#run' $input | while read -r comment data ; do
 			accept_tests
 			ds=$(expr $ds + 1)
 		    done
