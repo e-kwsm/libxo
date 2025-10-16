@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # $Id$
 #
 # Copyright 2016-2024, Juniper Networks, Inc.
