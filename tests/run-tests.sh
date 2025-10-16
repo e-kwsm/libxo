@@ -76,13 +76,13 @@ do_run_tests () {
 	base=$(basename $test .test)
 
         for fmt in ${TEST_FORMATS:-T}; do
-  	    for input in `echo ${SRCDIR}/${base}*.in`; do
+  	    for input in $(echo ${SRCDIR}/${base}*.in); do
 		if [ -f $input ]; then
-		    name=`basename $input .in`
+		    name=$(basename $input .in)
 		    ds=1
 		    grep '^#run' $input | while read comment data ; do
 			run_tests
-			ds=`expr $ds + 1`
+			ds=$(expr $ds + 1)
 		    done
 		fi
 	    done
@@ -108,17 +108,17 @@ do_accept () {
     mkdir -p ${SRCDIR}/saved
 
     for test in ${TESTS}; do
-	base=`basename $test .test`
-	base=`basename $base .c`
+	base=$(basename $test .test)
+	base=$(basename $base .c)
 
         for fmt in ${TEST_FORMATS:-T}; do
-	    for input in `echo ${SRCDIR}/${base}*.in`; do
+	    for input in $(echo ${SRCDIR}/${base}*.in); do
 		if [ -f $input ]; then
-		    name=`basename $input .in`
+		    name=$(basename $input .in)
 		    ds=1
 		    grep '^#run' $input | while read comment data ; do
 			accept_tests
-			ds=`expr $ds + 1`
+			ds=$(expr $ds + 1)
 		    done
 		fi
 	    done
@@ -131,7 +131,7 @@ do_accept () {
 #
 # pa and xi tests do not work on linux yet
 #
-case `uname`-`basename $PWD` in
+case $(uname)-$(basename $PWD) in
     Linux-pa|Linux-xi) exit 0;;
 esac
 
@@ -160,7 +160,7 @@ case $verb in
     ;;
 
     run-all)
-        TESTS=`echo *test`
+        TESTS=$(echo *test)
         do_run_tests
     ;;
 
@@ -170,7 +170,7 @@ case $verb in
     ;;
 
     accept-all)
-        TESTS=`echo *test`
+        TESTS=$(echo *test)
         do_accept
     ;;
 
