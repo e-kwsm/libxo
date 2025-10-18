@@ -8,7 +8,7 @@
 
 
 if [ ! -f configure ]; then
-    vers=`autoreconf --version | head -1`
+    vers=$(autoreconf --version | head -1)
     echo "Using" $vers
 
     mkdir -p m4
