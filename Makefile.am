@@ -52,7 +52,7 @@ upload-docs: docs upload-html
 
 upload-html:
 	@echo "Uploading html ... "
-	@-[ -d ${GH_PAGES_DIR} -a -d doc/html ] \
+	@-[ -d ${GH_PAGES_DIR} ] && [ -d doc/html ] \
 		&& echo "Updating html on gh-pages ..." \
 		&& mkdir -p ${GH_PAGES_DIR_VER}/html \
 		&& cp doc/top-link.html ${GH_PAGES_DIR}/libxo.html \
